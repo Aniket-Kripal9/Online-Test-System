@@ -39,13 +39,21 @@ The Online Test System belongs to the field of web-based educational software, a
 Technical Terms
 
 Several technical terms are central to understanding the project:
+
     • Model-View-Controller (MVC): A design pattern that separates application logic (Controller), data handling (Model), and user interface (View) to improve code organization and scalability.
+    
     • ADO.NET: A set of classes in .NET for accessing databases, allowing developers to execute SQL queries and manage data connections programmatically.
+    
     • Parameterized Queries: SQL queries that use placeholders (parameters) to prevent SQL injection attacks, ensuring secure database operations.
+    
     • Session Management: A mechanism to maintain user state across HTTP requests by storing data (e.g., user ID, role) on the server, used for authentication and authorization.
+    
     • Responsive Design: A web design approach that ensures the application adapts to different screen sizes and devices, achieved using Bootstrap’s grid system.
+    
     • Client-Server Architecture: A model where the client (browser) sends requests to the server, which processes them and returns responses, forming the basis of web applications.
+    
     • Relational Database: A database (e.g., MySQL) that organizes data into tables with relationships defined by keys, such as primary and foreign keys.
+    
     • Razor: A markup syntax used in ASP.NET MVC views (.cshtml files) to embed server-side code within HTML, enabling dynamic content generation.
 
 Significance and Scope
