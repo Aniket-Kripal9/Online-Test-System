@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Test Result";
+}
+
+<h2>Test Result</h2>
+<div class="alert alert-success text-center">
+    <h4>Submitted!</h4>
+    <p>You scored @ViewBag.Marks out of @ViewBag.Total</p>
+</div>
+<a asp-action="Index" class="btn btn-primary">Back to Dashboard</a>

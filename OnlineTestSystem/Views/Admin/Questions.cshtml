@@ -1,0 +1,54 @@
+﻿@model List<OnlineTestSystem.Models.Question>
+
+@{
+    ViewData["Title"] = "Manage Questions";
+}
+
+<h2>Questions</h2>
+<a asp-action="AddQuestion" class="btn btn-success">Add Question</a>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger mt-3">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@if (Model == null || Model.Count == 0)
+{
+    <div class="alert alert-info mt-3">
+        No questions available. Click "Add Question" to create one.
+    </div>
+}
+else
+{
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                <th>Option 3</th>
+                <th>Option 4</th>
+                <th>Correct Option</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var question in Model)
+            {
+                <tr>
+                    <td>@question.QuestionText</td>
+                    <td>@question.Option1</td>
+                    <td>@question.Option2</td>
+                    <td>@question.Option3</td>
+                    <td>@question.Option4</td>
+                    <td>@question.CorrectOption</td>
+                    <td>
+                        <a asp-action="DeleteQuestion" asp-route-id="@question.QuestionId" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

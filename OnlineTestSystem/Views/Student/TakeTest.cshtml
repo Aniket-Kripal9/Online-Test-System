@@ -1,0 +1,56 @@
+﻿@model List<OnlineTestSystem.Models.Question>
+
+@{
+    ViewData["Title"] = "Take Test";
+}
+
+<h2>Online Test</h2>
+<div id="timer">Time Left: <span id="time">10:00</span></div>
+<form id="testForm" asp-action="SubmitTest" method="post">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="question" style="display: @(i == 0 ? "block" : "none")" data-id="@i">
+            <h4>Question @(i + 1): @Model[i].QuestionText</h4>
+            <input type="radio" name="answers[@Model[i].QuestionId]" value="1" /> @Model[i].Option1<br />
+            <input type="radio" name="answers[@Model[i].QuestionId]" value="2" /> @Model[i].Option2<br />
+            <input type="radio" name="answers[@Model[i].QuestionId]" value="3" /> @Model[i].Option3<br />
+            <input type="radio" name="answers[@Model[i].QuestionId]" value="4" /> @Model[i].Option4<br />
+        </div>
+    }
+    <button type="button" id="prevBtn" onclick="navigateQuestion(-1)" disabled>Previous</button>
+    <button type="button" id="nextBtn" onclick="navigateQuestion(1)">Next</button>
+    <button type="submit" id="submitBtn" style="display: none;">Submit</button>
+</form>
+
+@section Scripts {
+    <script>
+        let currentQuestion = 0;
+        let totalQuestions = @Model.Count;
+        let timeLeft = 6; //here is the timer increaser in seconds
+
+        function startTimer() {
+            let timer = setInterval(function () {
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                document.getElementById('time').textContent =
+                    `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                timeLeft--;
+                if (timeLeft < 0) {
+                    clearInterval(timer);
+                    document.getElementById('testForm').submit();
+                }
+            }, 1000);
+        }
+
+        function navigateQuestion(direction) {
+            document.getElementsByClassName('question')[currentQuestion].style.display = 'none';
+            currentQuestion += direction;
+            document.getElementsByClassName('question')[currentQuestion].style.display = 'block';
+            document.getElementById('prevBtn').disabled = currentQuestion === 0;
+            document.getElementById('nextBtn').style.display = currentQuestion === totalQuestions - 1 ? 'none' : 'inline';
+            document.getElementById('submitBtn').style.display = currentQuestion === totalQuestions - 1 ? 'inline' : 'none';
+        }
+
+        window.onload = startTimer;
+    </script>
+}

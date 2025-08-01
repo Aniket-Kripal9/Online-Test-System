@@ -1,0 +1,26 @@
+﻿@model List<dynamic>
+
+@{
+    ViewData["Title"] = "Student Marks";
+}
+
+<h2>Student Marks</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Roll Number</th>
+            <th>Name</th>
+            <th>Marks</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var result in Model)
+        {
+            <tr>
+                <td>@result.RollNumber</td>
+                <td>@result.Name</td>
+                <td>@result.Marks</td>
+            </tr>
+        }
+    </tbody>
+</table>

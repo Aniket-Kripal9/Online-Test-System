@@ -1,0 +1,45 @@
+﻿@model List<OnlineTestSystem.Models.User>
+
+@{
+    ViewData["Title"] = "Manage Students";
+}
+
+<h2>Students</h2>
+<br />
+<a asp-action="AddStudent" class="btn btn-success">Add Student</a>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success mt-3">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Roll Number</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Course</th>
+            <th>Password</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.RollNumber</td>
+                <td>@student.Name</td>
+                <td>@student.Class</td>
+                <td>@student.Course</td>
+                <td>@student.Password</td>
+                <td>
+                    <a asp-action="EditStudent" asp-route-id="@student.UserId" class="btn btn-primary btn-sm">Edit</a>
+                    <a asp-action="DeleteStudent" asp-route-id="@student.UserId" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
