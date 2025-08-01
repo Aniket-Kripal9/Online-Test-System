@@ -7,9 +7,13 @@ The primary objective of the Online Test System is to create a platform where st
 Project Overview
 
 The Online Test System is structured around two primary user roles: students and administrators. Students access the system through a secure login, where they can take MCQ tests within a stipulated time frame (10 minutes). The test interface includes features such as question navigation (Previous/Next buttons), a countdown timer, and automatic submission upon timeout, ensuring a controlled and fair testing environment. Upon completion, students receive immediate feedback on their scores. Administrators, on the other hand, have access to a comprehensive dashboard that allows them to:
+
     • Manage student records (add, edit, delete student details such as roll number, name, class, course, and password).
+    
     • Create and modify test questions (including question text, four answer options, and the correct option).
+    
     • View test results for all students, enabling performance analysis.
+    
 The system employs a client-server architecture, where the client (web browser) interacts with the server to process requests and retrieve data. User authentication is session-based, ensuring that only authorized users access specific functionalities. The application is designed to be responsive, leveraging modern front-end frameworks to ensure compatibility across devices, such as desktops and tablets.
 
 Technologies Used
