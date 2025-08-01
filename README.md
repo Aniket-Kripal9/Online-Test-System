@@ -19,11 +19,17 @@ The system employs a client-server architecture, where the client (web browser) 
 Technologies Used
 
 The Online Test System is built using a robust stack of technologies to ensure scalability, security, and maintainability:
+
     • ASP.NET MVC (.NET 8.0): The project is developed using the ASP.NET Model-View-Controller (MVC) framework, part of the .NET 8.0 ecosystem. MVC separates the application logic (Controller), data (Model), and user interface (View), promoting modularity and ease of maintenance. .NET 8.0, the latest version at the time of development, provides enhanced performance, modern APIs, and cross-platform support, making it an ideal choice for web applications.
+    
     • ADO.NET: For database interactions, the system uses ADO.NET, a data access technology that allows direct execution of SQL queries. Unlike Object-Relational Mapping (ORM) tools like Entity Framework, ADO.NET provides fine-grained control over database operations, which is beneficial for learning and optimizing queries in a small-scale project.
+    
     • MySQL: The backend database is MySQL, a popular open-source relational database management system. MySQL stores all application data, including user credentials, test questions, and results, in a structured format using tables such as Users, Questions, and TestResults.
+    
     • Bootstrap and jQuery: The front-end is styled using Bootstrap, a CSS framework that ensures a responsive and visually appealing interface. jQuery, a JavaScript library, is used for client-side scripting, notably to implement the test timer and dynamic form interactions.
+    
     • Session Management: ASP.NET Core’s session middleware is employed to manage user authentication, storing user IDs and roles in server-side session storage to enforce access control.
+    
 These technologies were chosen for their reliability, community support, and alignment with industry standards for web development. ASP.NET MVC provides a structured framework for building scalable web applications, while ADO.NET and MySQL offer efficient data management. Bootstrap and jQuery enhance the user experience, making the system intuitive and accessible.
 
 Field of the Project
